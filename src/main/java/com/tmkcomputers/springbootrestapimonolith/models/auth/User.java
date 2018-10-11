@@ -4,6 +4,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -50,10 +53,11 @@ public class User implements UserDetails, Serializable {
 	@Column(name = "ENABLED")
 	private boolean enabled;
 
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+	private UserProfile userProfile;
+
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "USERS_AUTHORITIES", 
-	joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "ID"), 
-	inverseJoinColumns = @JoinColumn(name = "AUTHORITY_ID", referencedColumnName = "ID"))
+	@JoinTable(name = "USERS_AUTHORITIES", joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "AUTHORITY_ID", referencedColumnName = "ID"))
 	@OrderBy
 	@JsonIgnore
 	private Collection<Authority> authorities;

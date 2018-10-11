@@ -2,6 +2,10 @@ package com.tmkcomputers.springbootrestapimonolith.models;
 
 import com.fasterxml.jackson.annotation.*;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -10,6 +14,9 @@ import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "comments")
+@Getter
+@Setter
+@EqualsAndHashCode(of = "id")
 public class Comment extends AuditModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,28 +33,4 @@ public class Comment extends AuditModel {
 	@JsonIdentityReference(alwaysAsId = true)
 	@JsonProperty("post_id")
 	private Post post;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	public void setText(String text) {
-		this.text = text;
-	}
-
-	public Post getPost() {
-		return post;
-	}
-
-	public void setPost(Post post) {
-		this.post = post;
-	}
 }

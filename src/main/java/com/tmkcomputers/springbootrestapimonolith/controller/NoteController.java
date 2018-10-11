@@ -19,7 +19,6 @@ import com.tmkcomputers.springbootrestapimonolith.exception.ResourceNotFoundExce
 import com.tmkcomputers.springbootrestapimonolith.models.Note;
 import com.tmkcomputers.springbootrestapimonolith.repository.NoteRepository;
 
-
 @RestController
 @RequestMapping("/api")
 public class NoteController {
@@ -62,8 +61,8 @@ public class NoteController {
 	// Delete a Note
 	@DeleteMapping("/notes/{id}")
 	public ResponseEntity<?> deleteNote(@PathVariable(value = "id") Long noteId) {
-		 Note note = noteRepository.findById(noteId)
-		 .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));		
+		Note note = noteRepository.findById(noteId)
+				.orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
 
 		noteRepository.delete(note);
 

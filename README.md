@@ -16,3 +16,5 @@ Starter Spring Boot Rest Api Monolith Application
 6. Then it will start embedded tomcat server and launch our application at port 8080
 7. Now go to the browser and enter url : http://localhost:8080
 8. As our application is REST API application, you can test other endpoints in Postman.
+
+![alt text](https://github.com/tmk-computers/spring-boot-rest-api-monolith/blob/master/OAuth-Token.PNG)

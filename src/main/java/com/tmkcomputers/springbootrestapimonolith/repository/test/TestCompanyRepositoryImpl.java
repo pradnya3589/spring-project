@@ -3,9 +3,9 @@ package com.tmkcomputers.springbootrestapimonolith.repository.test;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.stereotype.Repository;
 
-import com.tmkcomputers.apistarter.models.test.TestCompany_;
-import com.tmkcomputers.apistarter.models.test.TestDepartment_;
-import com.tmkcomputers.apistarter.models.test.TestEmployee_;
+import com.tmkcomputers.springbootrestapimonolith.models.test.TestCompany_;
+import com.tmkcomputers.springbootrestapimonolith.models.test.TestDepartment_;
+import com.tmkcomputers.springbootrestapimonolith.models.test.TestEmployee_;
 import com.tmkcomputers.springbootrestapimonolith.models.test.TestCompany;
 import com.tmkcomputers.springbootrestapimonolith.models.test.TestDepartment;
 import com.tmkcomputers.springbootrestapimonolith.models.test.TestEmployee;

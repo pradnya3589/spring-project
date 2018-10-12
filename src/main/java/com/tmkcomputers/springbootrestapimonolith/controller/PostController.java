@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.tmkcomputers.springbootrestapimonolith.exception.ResourceNotFoundException;
+import com.tmkcomputers.springbootrestapimonolith.models.Note;
 import com.tmkcomputers.springbootrestapimonolith.models.Post;
 import com.tmkcomputers.springbootrestapimonolith.repository.PostRepository;
 
@@ -22,6 +23,12 @@ public class PostController {
 	@GetMapping("/posts")
 	public Page<Post> getAllPosts(Pageable pageable) {
 		return postRepository.findAll(pageable);
+	}
+	
+	// Get a Single Post
+	@GetMapping("/posts/{id}")
+	public Post getPostById(@PathVariable(value = "id") Long postId) {
+		return postRepository.findById(postId).orElseThrow(() -> new ResourceNotFoundException("Post", "id", postId));
 	}
 
 	@PostMapping("/posts")

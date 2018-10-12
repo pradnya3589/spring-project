@@ -14,6 +14,7 @@ import com.tmkcomputers.springbootrestapimonolith.repository.PostRepository;
 import javax.validation.Valid;
 
 @RestController
+@RequestMapping("/api")
 public class CommentController {
 
 	@Autowired

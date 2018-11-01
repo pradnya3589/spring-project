@@ -10,5 +10,6 @@ public class SpringBootRestApiMonolithApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootRestApiMonolithApplication.class, args);
+		System.out.println("hi");
 	}
 }
